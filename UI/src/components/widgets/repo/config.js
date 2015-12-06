@@ -22,6 +22,9 @@
 		},{
 			name: 'Stash',
 			value: 'Stash'
+		},{
+			name: 'Bitbucket',
+			value: 'Bitbucket'
 		}];
 
 console.log(JSON.stringify(widgetConfig)); //"{"options":{"id":"repo0"}}"
@@ -119,6 +122,16 @@ console.log(JSON.stringify(widgetConfig)); //"{"options":{"id":"repo0"}}"
 					collectorId: _.findWhere(ctrl.collectors, {name: 'Stash'}).id,
 					options: {
 						scm: 'Stash',
+						url: url,
+						branch: branch
+					}
+				};
+			}else if (repoTypeName.indexOf("Bitbucket") != -1) {
+
+				item = {
+					collectorId: _.findWhere(ctrl.collectors, {name: 'Bitbucket'}).id,
+					options: {
+						scm: 'Bitbucket',
 						url: url,
 						branch: branch
 					}
